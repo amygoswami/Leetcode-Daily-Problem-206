@@ -4,8 +4,8 @@ public:
         long long ans = 0;
         //find largest element
         int num = *max_element(nums.begin(), nums.end());
-        int i = 0, j = 0;
         
+        int i = 0, j = 0;
         while(j < nums.size()){
             if(nums[j] == num)  
                 k--;    //found an occurence of num
