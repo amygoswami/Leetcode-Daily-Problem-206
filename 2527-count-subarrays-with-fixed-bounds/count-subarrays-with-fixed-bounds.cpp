@@ -13,8 +13,7 @@ public:
             if(nums[i] == maxK)
                 maxPos = i;
 
-            int cnt = min(minPos, maxPos) - leftBound;
-            ans += cnt <= 0 ? 0 : cnt;
+            ans += max(0, min(minPos, maxPos) - leftBound);
         }
         return ans;
     }
