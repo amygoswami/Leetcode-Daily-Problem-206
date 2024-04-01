@@ -6,7 +6,7 @@ public:
             if(s[i] == ' ' && cnt == 0)
                 continue;
             if(s[i] == ' ' && cnt != 0) 
-                break;
+                return cnt;
             if(s[i] != ' ')
                 cnt++;
         }
