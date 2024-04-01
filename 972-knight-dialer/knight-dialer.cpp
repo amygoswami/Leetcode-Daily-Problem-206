@@ -5,10 +5,7 @@ public:   int mod = 1e9 + 7;
     };
 
     int knightDialer(int n) {
-        vector<vector<int>> dp(n+1, vector<int> (10, 0));
-        //base case
-        for(int i=0; i<10; i++)
-            dp[0][i] = 1; 
+        vector<int> prev(10, 1), cur(10, 0);
 
         //write changing params ie remain and i
         for(int remain=1; remain<n; remain++){
@@ -16,14 +13,15 @@ public:   int mod = 1e9 + 7;
                 int ans = 0;
                 //explore neighbors
                 for(int j : jumps[i])
-                    ans = (ans + dp[remain-1][j]) % mod;
-                dp[remain][i] = ans;
+                    ans = (ans + prev[j]) % mod;
+                cur[i] = ans;
             }
+            prev = cur;
         }
 
         int ans = 0;
         for(int i=0; i<10; i++)
-            ans = (ans + dp[n-1][i]) % mod;
+            ans = (ans + prev[i]) % mod;
         return ans;
     }
 };
